@@ -1,0 +1,81 @@
+﻿git 命令指令:
+
+mkdir   创建文件夹   
+ls      查看指定路径下的全部子文件及文件夹
+pwd     查看当前路径
+cd      改变路径,进入指定路径
+-A||-a  查看全部文件(包括隐藏的)   
+-l      查看文件及文件夹详细信息(包括创建时间) 
+-al     查看全部文件的详细信息
+-p      创建子级目录,在上级目录不存在的情况下用 -P
+rmdir   删除空文件夹
+
+rm      删除文件(或文件夹)  >-r  recursive递归删除(非空也可以)  
+                            >-f  屏蔽错误信息
+
+touch   创建文件
+cp      复制>cp 想要复制的路径(加文件后缀) 目标路径
+mv      移动文件路劲(剪切)>mv 想要复制的路径(加文件后缀) 目标路径(后可以重命名)
+clear   清除控制台
+
+cat     查看文件内容
+
+vi      vi编辑器对一些简单的文本进行操作>vi 文件名
+        >i或a   进入编辑模式
+        >Esc键  退出编辑模式
+	>:w     保存编辑
+	>:q     退出vi编辑器   >:wq    可以一起使用
+	
+--help  查看git指令属性
+
+git本地操作:
+
+git init    初始化本地仓库
+git add .   添加文件到暂存区,后面加(需要添加的文件名称) 点(.)代表当前目录所有文件  >>>*.js(所有js文件)
+git status  查看状态
+git commit  暂存区提交到主仓库(全部文件) -m添加备注日志(-m这样添加备注日志时,不需要进入到vi编辑器中了)
+git log     查看备注日志 //--oneline 查看简略日志
+
+###如果提交到主仓库时需要用户名和邮箱设置:
+git config --global user.name yangshengyan  //后面没有写名字,就是查看
+git config --global user.email 442575631@qq.com //后面没有写邮箱,就是查看
+
+上传到GitHub:
+git push https://github.com/github15008005765/GitBash.git master
+
+下载代码到本地:(clone项目中只能使用一次)
+git clone https://github.com/github15008005765/GitBash.git (文件夹路径可写)	
+
+服务器中的代码和本地进行关联:>>下载专用
+git pull https://github.com/github15008005765/GitBash.git master // 本地下载专用与服务器关联>>代码更新到本地
+
+保存服务器地址:
+git remote ABC https://github.com/github15008005765/GitBash.git //把服务器地址保存ABC变量中
+gir remote rename ABC AA                                       //rename重命名:gir remote rename <old> <new>
+git remote remove AA                                           //本地系统中移出变量AA
+git remote set-url AA https://github.com/github15008005765/GitBash.git  //重新设置AA保存的服务器地址
+git remote get-url AA                                          //获取AA保存的服务器地址
+
+隔离文件:不让git管理>>创建文件.gitignore>>在.gitignore文件中写入需要隔离的文件名>>node_modules/*   .gitignore
+
+版本回滚:
+第初回滚>
+git log --oneline 			//查看提交到主仓库的版本信息
+git reset --hard c97ed56(版本号) 	//回滚到需要的哪版本状态	
+
+第二次回滚>
+git reflog  				//查看历史记录,包括每次提交的信息,以及每一次版本回滚的操作;分支切换操作
+git reset --hard c97ed56(版本号) 	//回滚到需要的哪版本状态
+
+单文件操作>>暂存区恢复到工作区:
+git reset HEAD -- node_modules/app.js(文件路径)
+
+分支操作相关指令:
+git branch 		//查看当前拥有的所有分支(带*前缀的是当前所在的分支)
+git branch 分支名	//在当前分支下创建新的分支-->>新分支会继承所有的当前分支到目前为止的所有代码
+git checkout 分支名	//切换到指定的分支下面去-->>继续开发代码-->>记得提交到主仓库,然后切换到主分支
+git merge 分支名 -m 备注信息	//将指定分支合并到当前分支下,-m备注信息;
+git branch -d 分支名		//删除指定分支
+
+
+
