@@ -50,7 +50,7 @@ git clone https://github.com/github15008005765/GitBash.git (文件夹路径可�
 git pull https://github.com/github15008005765/GitBash.git master // 本地下载专用与服务器关联>>代码更新到本地
 
 保存服务器地址:
-git remote ABC https://github.com/github15008005765/GitBash.git //把服务器地址保存ABC变量中
+git remote add ABC https://github.com/github15008005765/GitBash.git //把服务器地址保存ABC变量中
 gir remote rename ABC AA                                       //rename重命名:gir remote rename <old> <new>
 git remote remove AA                                           //本地系统中移出变量AA
 git remote set-url AA https://github.com/github15008005765/GitBash.git  //重新设置AA保存的服务器地址
@@ -69,6 +69,7 @@ git reset --hard c97ed56(版本号) 	//回滚到需要的哪版本状态
 
 单文件操作>>暂存区恢复到工作区:
 git reset HEAD -- node_modules/app.js(文件路径)
+git checkout -- 文件名		//恢复误删除文件
 
 分支操作相关指令:
 git branch 		//查看当前拥有的所有分支(带*前缀的是当前所在的分支)
